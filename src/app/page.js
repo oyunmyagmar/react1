@@ -1,4 +1,4 @@
-import { PostCard } from "@/components";
+import { PostCard, Nav } from "@/components";
 const Home = () => {
   const cards = [
     {
@@ -9,7 +9,6 @@ const Home = () => {
       title: "Getting Started with Modern Web Development",
       description:
         "Learn the fundamentals of modern web development including React, Next.js and TypeScript. This comprehensive guide will help you build your first...",
-      btnText: "Read More",
     },
     {
       id: "2",
@@ -18,7 +17,6 @@ const Home = () => {
       title: "The Art of Clean Code",
       description:
         "Discover best practices for writing maintainable, readable code that your future self and teammates will thank you for. Clean code is not just about syntax.",
-      btnText: "Read More",
     },
     {
       id: "3",
@@ -28,7 +26,6 @@ const Home = () => {
       title: "Building Responsive Designs",
       description:
         "Master the techniques for creating websites that look great on all devices. From mobile-first design to advanced CSS Grid layouts.",
-      btnText: "Read More",
     },
     {
       id: "4",
@@ -38,7 +35,6 @@ const Home = () => {
       title: "Understanding JavaScript ES6+",
       description:
         "Explore the modern features of JavaScript including arrow functions, destructuring, and modules that make your code more expressive and easier to maintain.",
-      btnText: "Read More",
     },
     {
       id: "5",
@@ -48,7 +44,6 @@ const Home = () => {
       title: "Mastering Git and Version Control",
       description:
         "Take control of your projects with Git. Learn essential commands, branching strategies, and collaboration workflows for smoother team development.",
-      btnText: "Read More",
     },
     {
       id: "6",
@@ -58,26 +53,40 @@ const Home = () => {
       title: "Optimizing Web Performance",
       description:
         "Speed up your websites with practical tips on minimizing load times, optimizing images, and leveraging caching to improve user experience.",
-      btnText: "Read More",
     },
   ];
 
   return (
     <div>
-      <div className="w-full h-screen flex items-center">
-        <div className="flex flex-wrap gap-6 justify-center">
-          {cards.map((post) => {
-            return (
-              <PostCard
-                image={post.image}
-                date={post.date}
-                title={post.title}
-                description={post.description}
-                btnText={post.btnText}
-              ></PostCard>
-            );
-          })}
-        </div>
+      <div>
+        <Nav
+          name="Simple Blog"
+          home="Home"
+          about="About"
+          contact="Contact"
+        ></Nav>
+      </div>
+      <div className="w-full bg-gray-50 flex flex-col items-center py-14">
+        <h1 className="text-5xl font-bold pb-6">Welcome to Simple Blog</h1>
+        <p className="w-130 text-center">
+          Discover insightful articles about web development, programming, and
+          technology. Clean design meets quality content.
+        </p>
+      </div>
+      <section>
+        <h3 className="text-2xl font-bold py-13 text-center">Latest Posts</h3>
+      </section>
+      <div className="flex flex-wrap gap-6 justify-center">
+        {cards.map((post) => {
+          return (
+            <PostCard
+              image={post.image}
+              date={post.date}
+              title={post.title}
+              description={post.description}
+            ></PostCard>
+          );
+        })}
       </div>
     </div>
   );
